@@ -55,3 +55,10 @@ body{
 .div-btn button{
     margin:5px 20px;
 }
+#th{
+    border: 2px solid #f9bc61;
+    background-color: transparent;
+}
+#th a{
+    color: #f9bc61;
+}
