@@ -1,60 +1,138 @@
 function césar_chiffrement(){
     var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-    var cle=document.getElementById('clecesar');
-    var textareainput=document.getElementById('textareainput').value;
+    var cle=document.getElementById('clecesar').value;
+    var textarea=document.getElementById('textareainput').value;
     var textareaoutput=document.getElementById('textareaoutput');
+    var arr=[]
     var tab=[];
-    var k=Number(cle.value);;
-    for(i=0;i<abc.length;i++){
-        if(i+Number(cle.value)>abc.length){
-            k++
-            tab.push(abc[k])
-        }else if(i+Number(cle.value)==abc.length){
-            tab.push(abc[0])
-        }else{
-            tab.push(abc[i+Number(cle.value)])
-        }
+    var text=''
+    for(i=0;i<textarea.length;i++){
+        if(textarea[i]==" ")continue;
+        else arr.push(textarea[i].toLowerCase())
     }
-    var text='';
-    for(i=0;i<textareainput.length;i++){
-        if(textareainput.toLowerCase()==" ")continue; 
-        for(j=0;j<abc.length;j++){
-            if(textareainput[i].toLowerCase()==abc[j]){
-                var pos=j
-            }
+    for(i=cle;i<abc.length;i++){
+        tab.push(abc[i])
+    }
+    for(i=0;i<cle;i++){
+        tab.push(abc[i])
+    }
+    for(i=0;i<arr.length;i++){
+        for(j=0 ; j<abc.length;j++){
+            if(arr[i]==abc[j]) var pos=j;
         }
         text+=tab[pos]
-    }
-    textareaoutput.innerHTML=text ;
+    }    
+    textareaoutput.innerHTML=text
 }
 
 function césar_dechiffrement(){
     var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-    var cle=document.getElementById('clecesar');
+    var cle=document.getElementById('clecesar').value;
     var textareainput=document.getElementById('textareainput').value;
     var textareaoutput=document.getElementById('textareaoutput');
-    var chiff=abc
+    var arr=[]
     var tab=[];
-    var k=Number(cle.value);
+    var text=''
+    var tab2=[]
+    for(i=0;i<textareainput.length;i++){
+        if(textareainput[i]==" ")continue;
+        else arr.push(textareainput[i].toLowerCase())
+    }
     for(i=0;i<abc.length;i++){
-        if(i<Number(cle.value)){
-            chiff.unshift(abc[abc.length-i-1])
-        }else{
+        tab.push(abc[i])
+    }
+    for(i=tab.length-cle;i<tab.length;i++){
+        tab2.push(tab[i])
+    }
+    for(i=0;i<abc.length-cle;i++){
+        tab2.push(abc[i])
+    }
 
+    for(i=0;i<arr.length;i++){
+        for(j=0 ; j<abc.length;j++){
+            if(arr[i]==abc[j]) var pos=j;
+        }
+        text+=tab2[pos]
+    } 
+    textareaoutput.innerHTML=text;
+}
+
+function vegener_chiffrement(){
+    var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    var vegener=document.getElementById('vegenerinput').value;
+    var vegeneroutput=document.getElementById('vegeneroutput');
+    var cle =document.getElementById('clevegener').value;
+    var text='';
+    var tab = []
+    var tabcle=[]
+    var vegenerinput=[]
+    for(i=0;i<vegener.length;i++){
+        if(vegener[i]==" "){
+            continue
+        }else vegenerinput.push(vegener[i].toLowerCase())
+    }
+    for(i=0;i<vegenerinput.length;i++){
+        for(j=0;j<cle.length;j++){
+            tab.push(cle[j])
         }
     }
-    for(i=0 ; i<26; i++){
-        tab.push(chiff[i])
+    for(i=0;i<vegenerinput.length;i++){
+        tabcle.push(tab[i])
     }
-    var text='';
-    for(i=0;i<textareainput.length;i++){
-        if(textareainput.toLowerCase()==" ")continue;
+    for(i=0;i<vegenerinput.length;i++){
         for(j=0;j<abc.length;j++){
-            if(textareainput[i].toLowerCase()==abc[j]){
-                var pos=j-k
+            if(vegenerinput[i]==abc[j]){
+                var pos1=j
+            }
+            if(tabcle[i]==abc[j]){
+                var pos2=j
             }
         }
-        text+=tab[pos]
+        index=pos1+pos2
+        if(index>25){
+            text+=abc[index%26]
+        }else text+=abc[index]
     }
-    textareaoutput.innerHTML=text;
+    vegeneroutput.innerHTML=text
+}
+
+
+
+function vegener_dechiffrement(){
+    var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    var vegener=document.getElementById('vegenerinput').value;
+    var vegeneroutput=document.getElementById('vegeneroutput');
+    var cle =document.getElementById('clevegener').value;
+    var text='';
+    var tab = []
+    var tabcle=[]
+    var vegenerinput=[]
+    for(i=0;i<vegener.length;i++){
+        if(vegener[i]==" "){
+            continue
+        }else vegenerinput.push(vegener[i].toLowerCase())
+    }
+    for(i=0;i<vegenerinput.length;i++){
+        for(j=0;j<cle.length;j++){
+            tab.push(cle[j])
+        }
+    }
+    for(i=0;i<vegenerinput.length;i++){
+        tabcle.push(tab[i])
+    }
+    for(i=0;i<vegenerinput.length;i++){
+        for(j=0;j<abc.length;j++){
+            if(vegenerinput[i]==abc[j]){
+                var pos1=j
+            }
+            if(tabcle[i]==abc[j]){
+                var pos2=j
+            }
+        }
+        index=pos1-pos2
+        if(index<0){
+            text+=abc[25+index]
+        }else text+=abc[index]
+    }
+    vegeneroutput.innerHTML=text
 }
