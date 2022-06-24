@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto+Mono:wght@200&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+
+}
+body{
+    background-color: #004743;
+}
+.nav-menu{
+    display: flex;
+    justify-content: center;
+    
+}
+.nav-menu li{
+    list-style-type: none;
+    border-radius: 10px;
+    background-color: #f9bc61;
+    margin: 5px;
+    /* width: 100px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #f9bc61;
+}
+.nav-menu li:hover {
+    border: 2px solid #f9bc61;
+    background-color: transparent;
+}
+.nav-menu a{
+    color: #004743;
+}
+.nav-menu li:hover a{
+    color: #f9bc61;
+}
+.textarea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btn-y {
+    color: #004743;
+    background-color: #f9bc61;
+}
+.btn-y:hover {
+    cursor: pointer;
+}
+.div-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div-btn button{
+    margin:5px 20px;
+}
