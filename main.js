@@ -17,9 +17,9 @@ function césar_chiffrement(){
     }
     var text='';
     for(i=0;i<textareainput.length;i++){
-        if(textareainput==" ")continue; 
+        if(textareainput.toLowerCase()==" ")continue; 
         for(j=0;j<abc.length;j++){
-            if(textareainput[i]==abc[j]){
+            if(textareainput[i].toLowerCase()==abc[j]){
                 var pos=j
             }
         }
@@ -48,9 +48,9 @@ function césar_dechiffrement(){
     }
     var text='';
     for(i=0;i<textareainput.length;i++){
-        if(textareainput==" ")continue;
+        if(textareainput.toLowerCase()==" ")continue;
         for(j=0;j<abc.length;j++){
-            if(textareainput[i]==abc[j]){
+            if(textareainput[i].toLowerCase()==abc[j]){
                 var pos=j-k
             }
         }
