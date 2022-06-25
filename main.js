@@ -168,3 +168,35 @@ function trs_chiffrement(){
     }
     trsout.innerHTML=text
 }
+
+
+function trs_dechiffrement(){
+    var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    var trs = document.getElementById('trsinput').value;
+    var trsout=document.getElementById('trsoutput');
+    var cle =document.getElementById('cletrs').value.toLowerCase();
+    var col=cle.length;
+    var lin=parseInt( (trs.length/col)+(trs.length%col));
+    var tab=[];
+    var k=0;
+    var text=''
+    for(i=0;i<col;i++){
+        for(j=0;j<lin;j++){
+            tab.push(trs[k])
+            k++
+        }
+    }
+    for(i=trs.length;i<col*lin;i++){
+        tab[i]="";
+    }
+    for(i=0;i<abc.length;i++){
+        for(j=0;j<col;j++){
+            if(abc[i]==cle[j]){
+                for(h=j;h<tab.length;h+=3){
+                    text+=tab[h]
+                }
+            }
+        }
+    }
+    trsout.innerHTML=text
+}
