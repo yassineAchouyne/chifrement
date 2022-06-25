@@ -154,6 +154,9 @@ function trs_chiffrement(){
             k++
         }
     }
+    for(i=trs.length;i<col*lin;i++){
+        tab[i]="";
+    }
     for(i=0;i<abc.length;i++){
         for(j=0;j<col;j++){
             if(abc[i]==cle[j]){
@@ -163,12 +166,5 @@ function trs_chiffrement(){
             }
         }
     }
-    var text1=''
-    for(i=0;i<text.length;i++){
-        if(text[i]==null)continue;
-        else text1+=text[i]
-    }
-
-
-    trsout.innerHTML=text1
+    trsout.innerHTML=text
 }
