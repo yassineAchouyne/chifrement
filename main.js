@@ -136,3 +136,39 @@ function vegener_dechiffrement(){
     }
     vegeneroutput.innerHTML=text
 }
+
+
+function trs_chiffrement(){
+    var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    var trs = document.getElementById('trsinput').value;
+    var trsout=document.getElementById('trsoutput');
+    var cle =document.getElementById('cletrs').value;
+    var col=cle.length;
+    var lin=parseInt( (trs.length/col)+(trs.length%col));
+    var tab=[];
+    var k=0;
+    var text=''
+    for(i=0;i<col;i++){
+        for(j=0;j<lin;j++){
+            tab.push(trs[k])
+            k++
+        }
+    }
+    for(i=0;i<abc.length;i++){
+        for(j=0;j<col;j++){
+            if(abc[i]==cle[j]){
+                for(h=j;h<tab.length;h+=3){
+                    text+=tab[h]
+                }
+            }
+        }
+    }
+    var text1=''
+    for(i=0;i<text.length;i++){
+        if(text[i]=='undefined')continue;
+        else text1+=text[i]
+    }
+
+
+    trsout.innerHTML=text1
+}
